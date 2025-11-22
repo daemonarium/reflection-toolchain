@@ -17,7 +17,7 @@ set(CMAKE_CXX_COMPILER ${EMSCRIPTEN_ROOT_PATH}/em++)
 #set(LIBCXX_INCLUDE_DIR_GEN /home/m8/clang-reflection-p2996/clang-p2996/sysroot/include/c++/v1)
 
 # Flagi kompilatora – refleksja i C++26 z właściwymi include
-set(CMAKE_CXX_FLAGS_INIT "-std=c++26 -freflection -fparameter-reflection")
+set(CMAKE_CXX_FLAGS_INIT "-std=c++26 -freflection -fparameter-reflection -fannotation-attributes -fexpansion-statements")
 
 # Flagi linkera dla Emscripten z libc++
 #set(LIBCXX_LIB_DIR ${LIBCXX_SYSROOT}/lib/x86_64-unknown-linux-gnu)
