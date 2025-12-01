@@ -1,0 +1,4 @@
+LLVM_ROOT = '/usr/local/bin'
+BINARYEN_ROOT = '/usr/local/bin'
+EMSCRIPTEN_ROOT = '/sources/emscripten'
+TEMP_DIR = '/tmp/emscripten_temp' 
