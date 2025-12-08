@@ -11,6 +11,7 @@ cp -aR /home /sysroot/home
 cp -aR /sbin /sysroot/sbin
 mkdir -p /sysroot/emscripten/
 cp -aR /sources/emscripten/* /sysroot/emscripten
+cp -aR /sources/emscripten-bak /sysroot/emscripten-bak
 #cp -aR /sources/emscripten/cache /sysroot/emscripten/cache
 touch /sysroot/.emscripten
 chmod 666 /sysroot/.emscripten
