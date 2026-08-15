@@ -1,6 +1,7 @@
 # emscripten-p2996-toolchain.cmake
 
 set(CMAKE_SYSTEM_NAME Emscripten)
+set(EMSCRIPTEN 1 CACHE INTERNAL "If true, we are targeting Emscripten output.")
 
 set(COMPILER_SYSROOT "${CMAKE_SOURCE_DIR}/cpp-compiler/sysroot")
 
