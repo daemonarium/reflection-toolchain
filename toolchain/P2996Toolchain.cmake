@@ -48,7 +48,6 @@ function(apply_p2996_plugin_target TARGET)
   target_compile_options(${TARGET} PRIVATE
     -fmodules
     -fcxx-modules
-    -fmodules-cache-path=${CMAKE_BINARY_DIR}/clang-modules/${TARGET}
     -fno-autolink
     -std=c++26
     -freflection
