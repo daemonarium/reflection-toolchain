@@ -1,0 +1,10 @@
+# Pins taken from a sysroot that already builds and runs.
+# clang --version: 21.0.0git (bloomberg/clang-p2996 f72d85e5)
+P2996_COMMIT=f72d85e5a0fd9c960b07b6f1c8875110701cb627
+# The exported tree reported emscripten 4.0.21-git. Its .git was not
+# exported, so the pin is the 4.0.21 release tag. See TODO.md.
+EMSCRIPTEN_TAG=4.0.21
+# wasm-opt --version: version_125-5-gecf25d6e6
+BINARYEN_COMMIT=ecf25d6e6d20d2018c4897dcf95babdb16e7d311
+NODE_MAJOR=20
+DEBIAN_TAG=12.11-slim

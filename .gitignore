@@ -1,1 +1,3 @@
-sysroot
+sysroot/
+smoke/build/
+smoke/build-web/

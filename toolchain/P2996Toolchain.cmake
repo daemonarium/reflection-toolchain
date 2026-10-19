@@ -1,4 +1,15 @@
-set(P2996_ROOT "${CMAKE_SOURCE_DIR}/cpp-compiler/sysroot" CACHE PATH "p2996 sysroot")
+# Helpers for a project that already chose a compiler and only needs the
+# reflection flags and the libc++ from the sysroot. The toolchain files in
+# this directory are the ones to pass as CMAKE_TOOLCHAIN_FILE.
+
+if(DEFINED ENV{P2996_COMPILER_SYSROOT} AND NOT "$ENV{P2996_COMPILER_SYSROOT}" STREQUAL "")
+  set(P2996_ROOT "$ENV{P2996_COMPILER_SYSROOT}" CACHE PATH "p2996 sysroot" FORCE)
+elseif(P2996_COMPILER_SYSROOT)
+  set(P2996_ROOT "${P2996_COMPILER_SYSROOT}" CACHE PATH "p2996 sysroot" FORCE)
+else()
+  set(P2996_ROOT "${CMAKE_SOURCE_DIR}/sysroot" CACHE PATH "p2996 sysroot")
+endif()
+
 set(P2996_CLANG "${P2996_ROOT}/usr/local/bin/clang++" CACHE FILEPATH "p2996 clang++")
 set(P2996_CXX_INCLUDE "${P2996_ROOT}/usr/include/c++/v1")
 set(P2996_CXX_INCLUDE_TRIPLET "${P2996_ROOT}/usr/include/x86_64-linux-gnu/c++/v1")

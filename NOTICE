@@ -1,0 +1,29 @@
+reflection-toolchain
+Copyright (c) 2026 Magowie Sp. z o.o.
+
+This repository builds and redistributes upstream toolchain components.
+The build layer (Dockerfile, build-sysroot.sh, export-sysroot.sh, the
+emcc/em++/emrun wrappers produced by the export, and toolchain/*.cmake)
+is MIT-licensed. See LICENSE.
+
+Upstream components are pinned in upstream-commits.txt:
+
+  clang-p2996   Apache License 2.0 with LLVM Exceptions
+                https://github.com/bloomberg/clang-p2996
+                commit f72d85e5a0fd9c960b07b6f1c8875110701cb627
+  emscripten    MIT License and the University of Illinois/NCSA Open Source License
+                https://github.com/emscripten-core/emscripten
+                tag 4.0.21
+  binaryen      Apache License 2.0
+                https://github.com/WebAssembly/binaryen
+                commit ecf25d6e6d20d2018c4897dcf95babdb16e7d311
+                (wasm-opt reports this as version_125-5-gecf25d6e6)
+  Node.js       MIT License
+  Debian 12     various free-software licenses; see Debian's copyright files
+
+Our patch is not a fork of those trees. The Dockerfile checks out the pins,
+builds them, then replaces emscripten's libcxx with clang-p2996's libcxx so
+that `^^` reflection can compile to WebAssembly. Emscripten's wasm-specific
+libcxx files are copied back on top of that replacement: __config_site,
+__config_site.in, __assertion_handler, new.cpp, and overridable_function.h.
+Those steps are the libcxx replacement block in the Dockerfile.
